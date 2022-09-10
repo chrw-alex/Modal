@@ -33,6 +33,23 @@ body {
   box-shadow: 0 4px 30px rgba(0, 0, 0, .3)
 }
 
+.images {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-left: 300px;
+  padding-right: 300px;
+  padding-top: 100px;
+}
+
+.images img {
+  width: 48%;
+  height: 300px;
+  margin-bottom: 60px;
+}
+
 .modal {
   position: fixed;
   top: 0;

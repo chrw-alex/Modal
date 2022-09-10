@@ -1,9 +1,29 @@
+const scroll = calcScroll();
+
+function calcScroll() {
+    let div = document.createElement('div');
+
+    div.style.width = '50px';
+    div.style.height = '50px';
+    div.style.overflowY = 'scroll';
+    div.style.visibility = 'hidden';
+
+    document.body.appendChild(div);
+
+    let scrollWidth = div.offsetWidth - div.clientWidth;
+    div.remove();
+
+    return scrollWidth;
+  }
+
 function closeModal(modalSelector) {
   const modal = document.querySelector(modalSelector);
+
 
   modal.classList.add('hide');
   modal.classList.remove('show');
   document.body.style.overflow = '';
+  document.body.style.marginRight = `0px`;
 }
 
 function openModal(modalSelector) {
@@ -12,6 +32,7 @@ function openModal(modalSelector) {
   modal.classList.add('show');
   modal.classList.remove('hide');
   document.body.style.overflow = 'hidden';
+  document.body.style.marginRight = `${scroll}px`;
 }
 
 function modal(triggerSelector, modalSelector) {
@@ -40,6 +61,7 @@ function modal(triggerSelector, modalSelector) {
           window.removeEventListener('scroll', showModalByScroll);
       }
   }
+
   window.addEventListener('scroll', showModalByScroll);
 }
 
